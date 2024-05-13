@@ -7,6 +7,6 @@
     @apply flex flex-col items-center;
   }
   .fixed-container {
-    @apply flex w-full items-center justify-center lg:w-[960px];
+    @apply flex w-full justify-center lg:w-[960px];
   }
 }

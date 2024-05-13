@@ -1,7 +1,7 @@
 import PageTemplate from "@/components/PageTemplate";
 import PostCard from "@/components/postCard/PostCard";
 
-export default function page() {
+export default function Home() {
   return (
     <PageTemplate>
       <div className="section">

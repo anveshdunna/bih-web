@@ -61,11 +61,15 @@ module.exports = {
       },
       boxShadow: {
         button:
-          "0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0px 0px rgba(255, 255, 255, 0.4) inset, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+          "0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0px 0px rgba(255, 255, 255, 0.4) inset, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
         buttonHover:
-          "0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0px 0px rgba(255, 255, 255, 0.4) inset, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+          "0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0px 0px rgba(255, 255, 255, 0.4) inset, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
         buttonActive:
-          "0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 1px 0px rgba(0, 0, 0, 0.1) inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+          "0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px 0px rgba(0, 0, 0, 0.1) inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        borderBottom: "0 -1px 0 0 rgba(0, 0, 0, 0.2) inset",
+        borderRight: "-1px 0 0 0 rgba(0, 0, 0, 0.2) inset",
+        borderTop: "0 1px 0 0 rgba(0, 0, 0, 0.2) inset",
+        borderLeft: "1px 0 0 0 rgba(0, 0, 0, 0.2) inset",
       },
     },
   },
