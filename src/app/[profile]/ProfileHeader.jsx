@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 const ProfileHeader = (props) => {
   const { name, username, followers, following, description, website } = props;
   return (
-    <div className="flex w-full justify-between gap-6 px-6 pb-4 pt-16 lg:px-0">
+    <div className="flex w-full justify-between gap-6 px-6 pt-16 lg:px-0">
       <div className="flex flex-col gap-2 text-subheadline">
         <div className="flex flex-col gap-1">
           <div className="font-display text-title2 font-semibold">{name}</div>
@@ -17,7 +17,7 @@ const ProfileHeader = (props) => {
         </div>
         <div>{description}</div>
         <div className="text-gray-11 underline">{website}</div>
-        <div className="mt-4 flex gap-2">
+        <div className="my-4 flex gap-2">
           <Button variant="outline">Edit profile</Button>
           <Button variant="outline">Share</Button>
         </div>

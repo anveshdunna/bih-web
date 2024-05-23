@@ -1,17 +1,29 @@
 import Image from "next/image";
 import PostReco from "./PostReco";
 import PostMedia from "./PostMedia";
+import { Button } from "../ui/button";
+import IcHeart20 from "@/assets/icons/Heart20";
+import IcMoreHorizontal20 from "@/assets/icons/MoreHorizontal20";
+import IcComment20 from "@/assets/icons/Comment20";
+import IcList20 from "@/assets/icons/List20";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 
 const PostCard = (props) => {
   return (
-    <div className="w-full py-3 px-6 lg:px-0 flex gap-2 bg-white text-subheadline max-w-[640px] border-b border-gray-6">
-      <div className="w-8 h-8 rounded-full bg-red-8"></div>
+    <div className="flex w-full max-w-[640px] gap-2 border-b border-gray-6 bg-white px-6 py-3 text-subheadline lg:px-0">
+      <Avatar size="sm">
+        <AvatarFallback>A</AvatarFallback>
+      </Avatar>
       <div className="flex w-full flex-col">
-        <div className="flex justify-between h-8 items-center">
+        <div className="flex h-8 items-center justify-between">
           <div className="font-semibold">Username</div>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <div className="text-gray-10">21d</div>
-            <div className="text-gray-11">...</div>
+            <div className="text-gray-11">
+              <Button variant="ghost" className="gap-1 px-1.5">
+                <IcMoreHorizontal20 />
+              </Button>
+            </div>
           </div>
         </div>
         <div>
@@ -21,7 +33,40 @@ const PostCard = (props) => {
         </div>
         <PostReco />
         <PostMedia />
-        Recommendation Media Actions
+        <div className="-mx-1.5 mt-1 flex gap-6 text-gray-11">
+          <div className="flex-1">
+            <Button
+              variant="ghost"
+              className="gap-1 px-1.5 text-footnote font-normal"
+            >
+              <IcHeart20 />
+              14
+            </Button>
+          </div>
+          <div className="flex-1">
+            <Button
+              variant="ghost"
+              className="gap-1 px-1.5 text-footnote font-normal"
+            >
+              <IcComment20 />
+              23
+            </Button>
+          </div>
+          <div className="flex-1">
+            <Button
+              variant="ghost"
+              className="gap-1 px-1.5 text-footnote font-normal"
+            >
+              <IcList20 />
+              14
+            </Button>
+          </div>
+          <div className="">
+            <Button variant="ghost" className="gap-1 px-1.5">
+              <IcHeart20 />
+            </Button>
+          </div>
+        </div>
       </div>
       {/* <div className="flex justify-between py-2">
         <div className="flex gap-2">

@@ -28,30 +28,56 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import {
+  Popover,
+  PopoverAnchor,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 import Icon from "@/assets/Icon";
 import { usePathname } from "next/navigation";
 import checkWindowWidth from "@/hooks/checkWindowWidth";
+import CreateNewButton from "./CreateNewButton";
+import IcHeart20 from "@/assets/icons/Heart20";
+import IcPost24 from "@/assets/icons/Post24";
+import IcHome24 from "@/assets/icons/Home24";
+import IcHome24Bold from "@/assets/icons/Home24Bold";
+import IcSearch24 from "@/assets/icons/Search24";
+import IcSearch24Bold from "@/assets/icons/Search24Bold";
+import IcBell24 from "@/assets/icons/Bell24";
+import IcBell24Bold from "@/assets/icons/Bell24Bold";
+import IcPlusSquare24 from "@/assets/icons/PlusSquare24";
+import IcPlus24 from "@/assets/icons/Plus24";
+import { useState } from "react";
+import NewPost from "../dialog/NewPost";
 
-const GlobalNav = (props) => {
+export default function GlobalNav(props) {
   const [isDesktop, isMobile] = checkWindowWidth();
   const demoProfile = "anveshdunna";
   const pathname = usePathname();
+  const [isNewPostOpen, setIsNewPostOpen] = useState(false);
+  const [isNewListOpen, setIsNewListOpen] = useState(false);
+  const newPostDialog = () => setIsNewPostOpen(!isNewPostOpen);
+  const newListDialog = () => setIsNewListOpen(!isNewListOpen);
 
   return (
     <>
-      <nav className="shadow-borderTop md:shadow-borderRight fixed bottom-0 flex h-16 w-full gap-1 bg-white px-4 md:top-0 md:h-full md:w-16 md:flex-col md:justify-start md:px-2 md:py-2 xl:w-60">
-        <GlobalNavItem
-          name="Home"
-          iconName="home"
-          link="/"
-          isActive={pathname === "/"}
-        />
+      <nav className="fixed bottom-0 flex h-16 w-full gap-1 bg-whiteA-5 px-4 py-2 shadow-borderTop md:top-0 md:h-full md:w-60 md:flex-col md:justify-start md:px-3 md:shadow-borderRight">
+        <GlobalNavItem name="Home" link="/" isActive={pathname === "/"}>
+          {pathname === "/" ? <IcHome24Bold /> : <IcHome24 />}
+        </GlobalNavItem>
         <GlobalNavItem
           name="Explore"
-          iconName="search"
           link="/explore"
           isActive={pathname.startsWith("/explore")}
-        />
+        >
+          {pathname.startsWith("/explore") ? (
+            <IcSearch24Bold />
+          ) : (
+            <IcSearch24 />
+          )}
+        </GlobalNavItem>
         {isMobile && (
           <Drawer>
             <DrawerTrigger asChild>
@@ -61,63 +87,90 @@ const GlobalNav = (props) => {
                 type="button"
                 aria-label="Create..."
               >
-                <Icon name="plusSquare" />
+                <IcPlusSquare24 />
               </Button>
             </DrawerTrigger>
             <DrawerContent>
               <DrawerHeader>
-                <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-                <DrawerDescription>
-                  This action cannot be undone.
-                </DrawerDescription>
+                <DrawerTitle>Create new</DrawerTitle>
               </DrawerHeader>
-              <DrawerFooter>
-                <Button>Submit</Button>
-                <DrawerClose>
-                  <Button variant="outline">Cancel</Button>
-                </DrawerClose>
-              </DrawerFooter>
+              <div className="flex justify-center gap-6 pb-6">
+                <CreateNewButton name="Post" iconName="home" />
+                <CreateNewButton name="List" iconName="home" />
+              </div>
             </DrawerContent>
           </Drawer>
         )}
-
         <GlobalNavItem
           name="Activity"
-          iconName="bell"
           link="/activity"
           isActive={pathname.startsWith("/activity")}
-        />
+        >
+          {pathname.startsWith("/activity") ? <IcBell24Bold /> : <IcBell24 />}
+        </GlobalNavItem>
         <GlobalNavItem
           name="Profile"
-          iconName="home"
           link={`/${demoProfile}`}
           isActive={pathname.startsWith(`/${demoProfile}`)}
-        />
+        >
+          {pathname.startsWith(`/${demoProfile}`) ? (
+            <IcHome24Bold />
+          ) : (
+            <IcHome24 />
+          )}
+        </GlobalNavItem>
         {isDesktop && (
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                size="lg"
-                className="hidden items-center justify-start gap-2 p-2 md:flex"
-                type="button"
-              >
-                <Icon name="plus" />
-                Create...
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:rounded-3xl">
-              <DialogHeader>
-                <DialogTitle className="text-title3">
-                  Create new...{" "}
-                </DialogTitle>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
+          <div className="flex flex-col gap-1">
+            <div className="mb-1 ml-10 mt-2 flex flex-col gap-2">
+              <div className="h-px bg-gray-6"></div>
+              <span className="text-caption1 text-gray-11">Create</span>
+            </div>
+
+            <CreatePostTrigger onTrigger={newPostDialog} />
+            <Button variant="ghost" className="justify-start px-2" size="lg">
+              <IcPost24 />
+              New list
+            </Button>
+          </div>
         )}
       </nav>
+      <NewPost isOpen={isNewPostOpen} onOpenChange={setIsNewPostOpen} />
     </>
   );
-};
+}
 
-export default GlobalNav;
+function CreatePostTrigger(props) {
+  const { onTrigger } = props;
+  return (
+    <Button
+      variant="ghost"
+      className="justify-start px-2"
+      size="lg"
+      onClick={onTrigger}
+    >
+      <IcPost24 />
+      New post
+    </Button>
+  );
+}
+
+{
+  /* <Dialog>
+  <DialogTrigger asChild>
+    <Button
+      variant="outline"
+      size="lg"
+      className="hidden items-center justify-start gap-2 p-2 md:flex"
+      type="button"
+    >
+      <Icon name="plus" />
+      Create...
+    </Button>
+  </DialogTrigger>
+  <DialogContent className="sm:rounded-3xl">
+    <DialogHeader>
+      <DialogTitle className="text-title3">Create new... </DialogTitle>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>; */
+}

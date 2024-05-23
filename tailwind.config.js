@@ -17,6 +17,9 @@ function simplifyColorNames(radixColors) {
 }
 
 module.exports = {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -66,10 +69,10 @@ module.exports = {
           "0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0px 0px rgba(255, 255, 255, 0.4) inset, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
         buttonActive:
           "0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 1px 0px rgba(0, 0, 0, 0.1) inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-        borderBottom: "0 -1px 0 0 rgba(0, 0, 0, 0.2) inset",
-        borderRight: "-1px 0 0 0 rgba(0, 0, 0, 0.2) inset",
-        borderTop: "0 1px 0 0 rgba(0, 0, 0, 0.2) inset",
-        borderLeft: "1px 0 0 0 rgba(0, 0, 0, 0.2) inset",
+        borderBottom: "0 0.33px 0 0 rgba(0, 0, 0, 0.3)",
+        borderRight: "0.33px 0 0 0 rgba(0, 0, 0, 0.3)",
+        borderTop: "0 -0.33px 0 0 rgba(0, 0, 0, 0.3)",
+        borderLeft: "-0.33px 0 0 0 rgba(0, 0, 0, 0.3)",
       },
     },
   },

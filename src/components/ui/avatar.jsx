@@ -5,8 +5,9 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
+// removed 'relative' from the parent div
 const avatarVariants = cva(
-  "relative flex shrink-0 overflow-hidden rounded-full outline outline-1 -outline-offset-1 outline-grayA-6 font-display",
+  "flex shrink-0 overflow-hidden rounded-full outline outline-1 -outline-offset-1 outline-grayA-6 font-display",
   {
     variants: {
       size: {
