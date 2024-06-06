@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // removed 'relative' from the parent div
 const avatarVariants = cva(
-  "flex shrink-0 overflow-hidden rounded-full outline outline-1 -outline-offset-1 outline-grayA-6 font-display",
+  "flex shrink-0 overflow-hidden rounded-full inside-border font-display",
   {
     variants: {
       size: {

@@ -1,6 +1,199 @@
+@import "@radix-ui/colors/slate.css";
+@import "@radix-ui/colors/slate-dark.css";
+@import "@radix-ui/colors/slate-alpha.css";
+@import "@radix-ui/colors/slate-dark-alpha.css";
+@import "@radix-ui/colors/iris.css";
+@import "@radix-ui/colors/iris-dark.css";
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/blue-dark.css";
+@import "@radix-ui/colors/jade.css";
+@import "@radix-ui/colors/jade-dark.css";
+@import "@radix-ui/colors/amber.css";
+@import "@radix-ui/colors/amber-dark.css";
+@import "@radix-ui/colors/tomato.css";
+@import "@radix-ui/colors/tomato-dark.css";
+@import "@radix-ui/colors/white-alpha.css";
+@import "@radix-ui/colors/black-alpha.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: white;
+    --bg-inverse: var(--slate-12);
+
+    --material-ultrathin: var(--white-a5);
+    --material-thin: var(--white-a7);
+    --material-regular: var(--white-a9);
+    --material-thick: var(--white-a11);
+
+    --surface-primary: white;
+    --surface-primary-hover: var(--slate-2);
+    --surface-primary-active: var(--slate-3);
+    --surface-secondary: var(--slate-2);
+    --surface-secondary-hover: var(--slate-3);
+    --surface-secondary-active: var(--slate-4);
+
+    --fill-primary: var(--slate-a3);
+    --fill-primary-hover: var(--slate-a4);
+    --fill-primary-active: var(--slate-a5);
+    --fill-secondary: transparent;
+    --fill-secondary-hover: var(--slate-a3);
+    --fill-secondary-active: var(--slate-a4);
+    --fill-brand: var(--slate-12);
+    --fill-brand-hover: black;
+    --fill-brand-active: black;
+    --fill-info: var(--blue-9);
+    --fill-info-hover: var(--blue-10);
+    --fill-info-active: var(--blue-11);
+    --fill-success: var(--jade-9);
+    --fill-success-hover: var(--jade-10);
+    --fill-success-active: var(--jade-11);
+    --fill-warning: var(--amber-9);
+    --fill-warning-hover: var(--amber-10);
+    --fill-warning-active: var(--amber-11);
+    --fill-critical: var(--tomato-9);
+    --fill-critical-hover: var(--tomato-10);
+    --fill-critical-active: var(--tomato-11);
+
+    --text-primary: var(--slate-12);
+    --text-secondary: var(--slate-11);
+    --text-tertiary: var(--slate-9);
+    --text-quaternary: var(--slate-8);
+    --text-inverse: white;
+    --text-contrast: white;
+    --text-info: var(--blue-11);
+    --text-success: var(--jade-11);
+    --text-warning: var(--amber-11);
+    --text-critical: var(--tomato-11);
+
+    --icon-primary: var(--slate-11);
+    --icon-secondary: var(--slate-9);
+    --icon-info: var(--blue-9);
+    --icon-success: var(--jade-9);
+    --icon-warning: var(--amber-9);
+    --icon-critical: var(--tomato-9);
+
+    --border-primary: var(--slate-a6);
+    --border-secondary: var(--slate-a5);
+    --border-tertiary: var(--slate-a7);
+
+    --nav-shadow: rgba(0, 0, 0, 0.1);
+    --activity-liked: var(--tomato-9);
+    --activity-commented: var(--blue-9);
+    --activity-mentioned: var(--jade-9);
+    --activity-followed: var(--iris-9);
+
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 24.6 95% 53.1%;
+  }
+
+  .dark {
+    --slate-1-rgb: 17, 17, 19;
+
+    --bg-primary: var(--slate-1);
+    --bg-inverse: white;
+
+    --material-ultrathin: rgba(var(--slate-1-rgb), 0.3);
+    --material-thin: rgba(var(--slate-1-rgb), 0.5);
+    --material-regular: rgba(var(--slate-1-rgb), 0.7);
+    --material-thick: rgba(var(--slate-1-rgb), 0.9);
+
+    --surface-primary: var(--slate-1);
+    --surface-primary-hover: var(--slate-2);
+    --surface-primary-active: var(--slate-3);
+    --surface-secondary: var(--slate-2);
+    --surface-secondary-hover: var(--slate-3);
+    --surface-secondary-active: var(--slate-4);
+
+    --fill-primary: var(--slate-a3);
+    --fill-primary-hover: var(--slate-a4);
+    --fill-primary-active: var(--slate-a5);
+    --fill-secondary: transparent;
+    --fill-secondary-hover: var(--slate-a3);
+    --fill-secondary-active: var(--slate-a4);
+    --fill-brand: var(--slate-12);
+    --fill-brand-hover: white;
+    --fill-brand-active: white;
+    --fill-info: var(--blue-9);
+    --fill-info-hover: var(--blue-10);
+    --fill-info-active: var(--blue-11);
+    --fill-success: var(--jade-9);
+    --fill-success-hover: var(--jade-10);
+    --fill-success-active: var(--jade-11);
+    --fill-warning: var(--amber-9);
+    --fill-warning-hover: var(--amber-10);
+    --fill-warning-active: var(--amber-11);
+    --fill-critical: var(--tomato-9);
+    --fill-critical-hover: var(--tomato-10);
+    --fill-critical-active: var(--tomato-11);
+
+    --text-primary: var(--slate-12);
+    --text-secondary: var(--slate-11);
+    --text-tertiary: var(--slate-9);
+    --text-quaternary: var(--slate-8);
+    --text-inverse: var(--slate-1);
+    --text-contrast: white;
+    --text-info: var(--blue-11);
+    --text-success: var(--jade-11);
+    --text-warning: var(--amber-11);
+    --text-critical: var(--tomato-11);
+
+    --icon-primary: var(--slate-11);
+    --icon-secondary: var(--slate-9);
+    --icon-info: var(--blue-9);
+    --icon-success: var(--jade-9);
+    --icon-warning: var(--amber-9);
+    --icon-critical: var(--tomato-9);
+
+    --border-primary: var(--slate-a6);
+    --border-secondary: var(--slate-a5);
+    --border-tertiary: var(--slate-a7);
+
+    --nav-shadow: rgba(255, 255, 255, 0.1);
+    --activity-liked: var(--tomato-9);
+    --activity-commented: var(--blue-9);
+    --activity-mentioned: var(--jade-9);
+    --activity-followed: var(--iris-9);
+
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 20.5 90.2% 48.2%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 20.5 90.2% 48.2%;
+  }
+}
 
 @layer components {
   .section {
@@ -8,5 +201,8 @@
   }
   .fixed-container {
     @apply flex w-full justify-center lg:w-[960px];
+  }
+  .inside-border {
+    @apply outline outline-1 -outline-offset-1 outline-border-secondary;
   }
 }

@@ -5,6 +5,7 @@ import ProfileHeader from "./ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import NavItem from "@/components/ui/nav-item";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function ProfileLayout(props) {
   const { children, params } = props;
@@ -16,6 +17,9 @@ export default function ProfileLayout(props) {
         <div className="section">
           <div className="fixed-container">
             <div className="w-full max-w-[640px]">
+              <div className="flex h-12 items-center justify-end bg-green-8">
+                <Button>Settings</Button>
+              </div>
               <ProfileHeader
                 name="Anvesh Dunna"
                 username={params.profile}
@@ -24,7 +28,7 @@ export default function ProfileLayout(props) {
                 description="This is a slightly descriptive text talking about myself. This is a slightly descriptive text talking about myself. This is a slightly descriptive text talking about myself."
                 website="www.bestinhere.com"
               />
-              <div className="shadow-borderBottom flex w-full py-2">
+              <div className="flex w-full py-2 shadow-borderBottom">
                 <NavItem
                   name="Posts"
                   link={`/${currentProfile}`}

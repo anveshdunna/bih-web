@@ -7,19 +7,20 @@ import IcMoreHorizontal20 from "@/assets/icons/MoreHorizontal20";
 import IcComment20 from "@/assets/icons/Comment20";
 import IcList20 from "@/assets/icons/List20";
 import { Avatar, AvatarFallback } from "../ui/avatar";
+import ProfileName from "../ProfileName";
 
 const PostCard = (props) => {
   return (
-    <div className="flex w-full max-w-[640px] gap-2 border-b border-gray-6 bg-white px-6 py-3 text-subheadline lg:px-0">
+    <div className="border-border-secondary flex w-full max-w-[640px] gap-2 border-b px-6 py-3 text-subheadline lg:px-0">
       <Avatar size="sm">
         <AvatarFallback>A</AvatarFallback>
       </Avatar>
       <div className="flex w-full flex-col">
         <div className="flex h-8 items-center justify-between">
-          <div className="font-semibold">Username</div>
+          <ProfileName name="Firstname Lastname" />
           <div className="flex items-center gap-2">
-            <div className="text-gray-10">21d</div>
-            <div className="text-gray-11">
+            <div className="text-text-tertiary">21d</div>
+            <div className="text-text-secondary">
               <Button variant="ghost" className="gap-1 px-1.5">
                 <IcMoreHorizontal20 />
               </Button>
@@ -33,7 +34,7 @@ const PostCard = (props) => {
         </div>
         <PostReco />
         <PostMedia />
-        <div className="-mx-1.5 mt-1 flex gap-6 text-gray-11">
+        <div className="text-gray-11 -mx-1.5 mt-1 flex gap-6">
           <div className="flex-1">
             <Button
               variant="ghost"
