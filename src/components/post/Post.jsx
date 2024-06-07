@@ -6,35 +6,49 @@ import IcHeart20 from "@/assets/icons/Heart20";
 import IcMoreHorizontal20 from "@/assets/icons/MoreHorizontal20";
 import IcComment20 from "@/assets/icons/Comment20";
 import IcList20 from "@/assets/icons/List20";
-import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import ProfileName from "../ProfileName";
 
-const PostCard = (props) => {
+export default function Post(props) {
+  const {
+    profileName,
+    avatarImgSrc,
+    time,
+    placeName,
+    placeCategory,
+    placeImgSrc,
+    placeThumbnail,
+    isMedia,
+    mediaImgSrc,
+    isCaption,
+    caption,
+  } = props;
   return (
-    <div className="border-border-secondary flex w-full max-w-[640px] gap-2 border-b px-6 py-3 text-subheadline lg:px-0">
+    <div className="flex w-full max-w-[640px] gap-2 border-b border-border-secondary px-6 py-3 text-subheadline lg:px-0">
       <Avatar size="sm">
+        <AvatarImage src={avatarImgSrc} />
         <AvatarFallback>A</AvatarFallback>
       </Avatar>
       <div className="flex w-full flex-col">
         <div className="flex h-8 items-center justify-between">
-          <ProfileName name="Firstname Lastname" />
+          <ProfileName name={profileName} />
           <div className="flex items-center gap-2">
-            <div className="text-text-tertiary">21d</div>
-            <div className="text-text-secondary">
-              <Button variant="ghost" className="gap-1 px-1.5">
-                <IcMoreHorizontal20 />
-              </Button>
-            </div>
+            <div className="text-text-tertiary">{time}</div>
+            <Button variant="ghost" className="px-1.5 text-icon">
+              <IcMoreHorizontal20 />
+            </Button>
           </div>
         </div>
-        <div>
-          Text message that describes their best in here opinion. It could span
-          from a couple of lines to a couple of paragraphs. There is no limit as
-          such.
-        </div>
-        <PostReco />
-        <PostMedia />
-        <div className="text-gray-11 -mx-1.5 mt-1 flex gap-6">
+        <PostReco
+          placeName={placeName}
+          placeCategory={placeCategory}
+          placeImgSrc={placeImgSrc}
+          placeThumbnail={placeThumbnail}
+        />
+        {isMedia === 1 && <PostMedia mediaImgSrc={mediaImgSrc} />}
+        {isCaption === 1 && <div className="mt-2">{caption}</div>}
+
+        <div className="-mx-1.5 mt-1 flex gap-6 text-gray-11">
           <div className="flex-1">
             <Button
               variant="ghost"
@@ -99,6 +113,4 @@ const PostCard = (props) => {
       <div>Footer</div> */}
     </div>
   );
-};
-
-export default PostCard;
+}

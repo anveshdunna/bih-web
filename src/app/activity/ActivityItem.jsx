@@ -14,8 +14,17 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
 export default function ActivityItem(props) {
-  const { name, name2, type, time, seen, avatarImg, placeImg, thumbnailType } =
-    props;
+  const {
+    name,
+    name2,
+    type,
+    time,
+    seen,
+    avatarImg,
+    placeImg,
+    thumbnailType,
+    thumbnailPlaceholder,
+  } = props;
   return (
     <div className="flex gap-3 rounded-xl px-6 py-3 text-subheadline transition duration-300 hover:cursor-pointer hover:bg-surface-hover active:bg-surface-active lg:px-3">
       <Avatar>
@@ -245,7 +254,11 @@ export default function ActivityItem(props) {
         type === "commented" ||
         type === "commented_2" ||
         type === "commented_3") && (
-        <Thumbnail type={thumbnailType} img={placeImg} />
+        <Thumbnail
+          type={thumbnailType}
+          imgSrc={placeImg}
+          placeholder={thumbnailPlaceholder}
+        />
       )}
     </div>
   );

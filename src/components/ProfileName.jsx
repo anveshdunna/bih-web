@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function ProfileName(props) {
+export default function ProfileName(props) {
   const { name } = props;
   return (
     <Link className="font-semibold hover:underline" href={formatString(name)}>
@@ -9,9 +9,11 @@ function ProfileName(props) {
   );
 }
 
-export default ProfileName;
-
 function formatString(input) {
   // Remove spaces and convert to lowercase
+
+  if (typeof input !== "string") {
+    return "error";
+  }
   return input.replace(/\s+/g, "").toLowerCase();
 }

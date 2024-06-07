@@ -15,7 +15,7 @@ const names = [
   "Henry McCoy",
 ];
 
-const typeArray = [
+const types = [
   "liked_post",
   "liked_post_2",
   "liked_post_3",
@@ -37,16 +37,17 @@ const typeArray = [
   "followed",
 ];
 
-const thumbnailTypeArray = ["place", "photo"];
+const thumbnailTypes = ["place", "photo"];
 
 for (let i = 0; i <= 80; i++) {
   activityData.push({
     key: i.toString(),
     name: getRandom(names),
     name2: getRandom(names),
-    type: getRandom(typeArray),
-    thumbnailType: getRandom(thumbnailTypeArray),
-    avatarImg: `https://loremflickr.com/80/80/face?lock=${i}`,
+    type: getRandom(types),
+    thumbnailType: getRandom(thumbnailTypes),
+    thumbnailPlaceholder: getRandom([0, 1]),
+    avatarImg: `https://source.unsplash.com/random/80x80/?human%20face,${i}`,
     placeImg: `https://source.unsplash.com/random/80x80/?place,${i}`,
   });
 }
@@ -59,3 +60,4 @@ function getRandom(array) {
 export default activityData;
 
 // avatarImg: `https://source.unsplash.com/random/80x80/?human%20face,${i}`,
+// avatarImg: `https://loremflickr.com/80/80/face?lock=${i}`,

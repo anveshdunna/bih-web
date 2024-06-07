@@ -13,6 +13,7 @@ export default function ActivityList(props) {
           time={index < 5 ? `just now` : `a minute ago`}
           seen={index < 5 ? 0 : 1}
           thumbnailType={item.thumbnailType}
+          thumbnailPlaceholder={item.thumbnailPlaceholder}
           avatarImg={item.avatarImg}
           placeImg={item.placeImg}
         />
