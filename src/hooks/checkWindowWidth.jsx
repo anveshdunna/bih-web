@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function ResponsiveComponent() {
-  const [isDesktop, setIsDesktop] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
 
   const updateMedia = () => {

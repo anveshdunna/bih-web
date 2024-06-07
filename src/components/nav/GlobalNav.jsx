@@ -63,10 +63,13 @@ export default function GlobalNav(props) {
 
   return (
     <>
-      <nav className="fixed bottom-0 flex h-16 w-full gap-1 bg-whiteA-5 px-4 py-2 shadow-borderTop md:top-0 md:h-full md:w-60 md:flex-col md:justify-start md:px-3 md:shadow-borderRight">
+      <nav className="fixed bottom-0 flex h-16 w-full gap-1 bg-material px-2 py-2 backdrop-blur-xl md:top-0 md:h-full md:w-60 md:flex-col md:justify-start md:px-3 md:py-3">
+        {/* Home link */}
         <GlobalNavItem name="Home" link="/" isActive={pathname === "/"}>
           {pathname === "/" ? <IcHome24Bold /> : <IcHome24 />}
         </GlobalNavItem>
+
+        {/* Explore link */}
         <GlobalNavItem
           name="Explore"
           link="/explore"
@@ -78,6 +81,8 @@ export default function GlobalNav(props) {
             <IcSearch24 />
           )}
         </GlobalNavItem>
+
+        {/* Create new - Mobile */}
         {isMobile && (
           <Drawer>
             <DrawerTrigger asChild>
@@ -101,6 +106,8 @@ export default function GlobalNav(props) {
             </DrawerContent>
           </Drawer>
         )}
+
+        {/* Activity link */}
         <GlobalNavItem
           name="Activity"
           link="/activity"
@@ -108,6 +115,8 @@ export default function GlobalNav(props) {
         >
           {pathname.startsWith("/activity") ? <IcBell24Bold /> : <IcBell24 />}
         </GlobalNavItem>
+
+        {/* Profile link */}
         <GlobalNavItem
           name="Profile"
           link={`/${demoProfile}`}
@@ -119,15 +128,12 @@ export default function GlobalNav(props) {
             <IcHome24 />
           )}
         </GlobalNavItem>
+
+        {/* Create new - Desktop */}
         {isDesktop && (
           <div className="flex flex-col gap-1">
-            <div className="mb-1 ml-10 mt-2 flex flex-col gap-2">
-              <div className="h-px bg-gray-6"></div>
-              <span className="text-caption1 text-gray-11">Create</span>
-            </div>
-
             <CreatePostTrigger onTrigger={newPostDialog} />
-            <Button variant="ghost" className="justify-start px-2" size="lg">
+            <Button variant="outline" className="justify-start px-2" size="lg">
               <IcPost24 />
               New list
             </Button>
@@ -143,7 +149,7 @@ function CreatePostTrigger(props) {
   const { onTrigger } = props;
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       className="justify-start px-2"
       size="lg"
       onClick={onTrigger}
