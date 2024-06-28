@@ -11,15 +11,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${figtree} ${fraunces} font-sans`}>
-      <body className="text-text bg-bg text-body">
+      <body className="min-h-screen bg-bg text-body text-text">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <GlobalNav />
-          {children}
+          <div className="fixed-wrapper">
+            <GlobalNav />
+            <div className="scrollable-content">{children}</div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

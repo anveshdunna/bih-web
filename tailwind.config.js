@@ -163,10 +163,13 @@ module.exports = {
         largetitle: ["2.125rem", "2.625rem"],
         title1: ["1.75rem", "2.125rem"],
         title2: ["1.375rem", "1.75rem"],
-        title3: ["1.25rem", "1.5625rem"],
-        body: ["1.0625rem", "1.375rem"],
+        // title3: ["1.25rem", "1.5625rem"],
+        title3: ["1.25rem", "1.5rem"],
+        // body: ["1.0625rem", "1.375rem"],
+        body: ["1rem", "1.375rem"],
         callout: ["1rem", "1.3125rem"],
-        subheadline: ["0.9375rem", "1.25rem"],
+        // subheadline: ["0.9375rem", "1.25rem"],
+        subheadline: ["0.875rem", "1.25rem"],
         footnote: ["0.8125rem", "1.125rem"],
         caption1: ["0.75rem", "1rem"],
         caption2: ["0.6875rem", "0.8125rem"],
@@ -184,7 +187,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 
 // Utility function to flatten and rename Radix colors

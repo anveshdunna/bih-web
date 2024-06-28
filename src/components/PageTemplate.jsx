@@ -1,8 +1,6 @@
 const PageTemplate = (props) => {
   const { children } = props;
-  return (
-    <div className="flex h-80 flex-col items-stretch md:ml-60">{children}</div>
-  );
+  return <div className="flex flex-col items-stretch md:ml-16">{children}</div>;
 };
 
 export default PageTemplate;

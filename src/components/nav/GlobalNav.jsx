@@ -58,12 +58,22 @@ export default function GlobalNav(props) {
   const pathname = usePathname();
   const [isNewPostOpen, setIsNewPostOpen] = useState(false);
   const [isNewListOpen, setIsNewListOpen] = useState(false);
-  const newPostDialog = () => setIsNewPostOpen(!isNewPostOpen);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  // const newPostDialog = () => setIsNewPostOpen(!isNewPostOpen);
+  const newPostDialog = () => {
+    setIsDrawerOpen(false); // Close the drawer
+    setIsNewPostOpen(true); // Open the dialog
+  };
+
+  const handleDrawer = (open) => {
+    setIsDrawerOpen(open);
+  };
+
   const newListDialog = () => setIsNewListOpen(!isNewListOpen);
 
   return (
     <>
-      <nav className="fixed bottom-0 flex h-16 w-full gap-1 bg-material px-2 py-2 backdrop-blur-xl md:top-0 md:h-full md:w-60 md:flex-col md:justify-start md:px-3 md:py-3">
+      <nav className="fixed bottom-0 z-10 flex h-16 w-full gap-1 bg-material px-2 py-2 shadow-borderTop backdrop-blur-xl md:top-0 md:h-full md:w-16 md:flex-col md:justify-center md:shadow-none">
         {/* Home link */}
         <GlobalNavItem name="Home" link="/" isActive={pathname === "/"}>
           {pathname === "/" ? <IcHome24Bold /> : <IcHome24 />}
@@ -84,15 +94,15 @@ export default function GlobalNav(props) {
 
         {/* Create new - Mobile */}
         {isMobile && (
-          <Drawer>
+          <Drawer open={isDrawerOpen} onOpenChange={handleDrawer}>
             <DrawerTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex h-full flex-1 items-center rounded-lg p-0 md:hidden"
+                className="flex h-full flex-1 items-center rounded-lg p-0 text-icon md:hidden"
                 type="button"
                 aria-label="Create..."
               >
-                <IcPlusSquare24 />
+                <IcPlus24 />
               </Button>
             </DrawerTrigger>
             <DrawerContent>
@@ -100,8 +110,8 @@ export default function GlobalNav(props) {
                 <DrawerTitle>Create new</DrawerTitle>
               </DrawerHeader>
               <div className="flex justify-center gap-6 pb-6">
-                <CreateNewButton name="Post" iconName="home" />
-                <CreateNewButton name="List" iconName="home" />
+                <CreateNewButton name="Post" isMobile onClick={newPostDialog} />
+                <CreateNewButton name="List" isMobile />
               </div>
             </DrawerContent>
           </Drawer>
@@ -131,13 +141,26 @@ export default function GlobalNav(props) {
 
         {/* Create new - Desktop */}
         {isDesktop && (
-          <div className="flex flex-col gap-1">
-            <CreatePostTrigger onTrigger={newPostDialog} />
-            <Button variant="outline" className="justify-start px-2" size="lg">
-              <IcPost24 />
-              New list
-            </Button>
-          </div>
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="secondary"
+                className="mt-1 hidden h-12 md:inline-flex"
+              >
+                <IcPlus24 />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent side="right">
+              <div className="flex flex-col gap-1">
+                <CreateNewButton
+                  name="Create new post"
+                  isMobile="false"
+                  onClick={newPostDialog}
+                />
+                <CreateNewButton name="Create new list" isMobile="false" />
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
         )}
       </nav>
       <NewPost isOpen={isNewPostOpen} onOpenChange={setIsNewPostOpen} />
@@ -155,9 +178,19 @@ function CreatePostTrigger(props) {
       onClick={onTrigger}
     >
       <IcPost24 />
-      New post
+      (+)
     </Button>
   );
+}
+
+{
+  /* <div className="flex flex-col gap-1">
+            <CreatePostTrigger onTrigger={newPostDialog} />
+            <Button variant="outline" className="justify-start px-2" size="lg">
+              <IcPost24 />
+              New list
+            </Button>
+          </div> */
 }
 
 {

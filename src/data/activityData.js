@@ -48,7 +48,7 @@ for (let i = 0; i <= 80; i++) {
     thumbnailType: getRandom(thumbnailTypes),
     thumbnailPlaceholder: getRandom([0, 1]),
     avatarImg: `https://source.unsplash.com/random/80x80/?human%20face,${i}`,
-    placeImg: `https://source.unsplash.com/random/80x80/?place,${i}`,
+    placeImg: `https://loremflickr.com/80/80/nature?lock=${i}`,
   });
 }
 

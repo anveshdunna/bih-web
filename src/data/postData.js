@@ -15,7 +15,7 @@ const profileNames = [
   "Henry McCoy",
 ];
 
-const placeNames = [
+export const placeNames = [
   "Taj Mahal Tiffin Center",
   "Amravati Park",
   "Subhash Memorial",

@@ -22,7 +22,7 @@ export default function ActivityLayout(props) {
 
 function ActivityHeader(props) {
   return (
-    <div className="sticky top-0 z-10 bg-material-thick px-6 shadow-borderBottom backdrop-blur-lg lg:px-3">
+    <div className="sticky top-0 z-10 bg-material px-6 shadow-borderBottom backdrop-blur-xl lg:px-3">
       <div className="h-12"></div>
       <div className="text-title2 font-semibold">Activity</div>
       <div className="flex gap-2 py-4">
