@@ -5,6 +5,8 @@ import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
+import IcClose24 from "@/assets/icons/Close24";
+import { Button } from "./button";
 
 // Dialog components
 const Dialog = DialogPrimitive.Root;
@@ -43,9 +45,16 @@ const DialogContent = React.forwardRef((props, ref) => {
         {...otherProps}
       >
         {children}
-        <DialogClose className="focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground ring-offset-background absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none">
-          <Cross2Icon className="h-4 w-4" />
-          <span className="sr-only">Close</span>
+
+        <DialogClose asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute left-4 top-2 text-icon md:left-auto md:right-2"
+          >
+            <IcClose24 />
+            <span className="sr-only">Close</span>
+          </Button>
         </DialogClose>
       </DialogPrimitive.Content>
     </DialogPortal>

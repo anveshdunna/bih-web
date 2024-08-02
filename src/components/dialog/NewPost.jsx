@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/dialog";
 import IcCloseCircle20 from "@/assets/icons/CloseCircle20";
 import CategorySelector from "../CategorySelector";
+import TagInput from "../ui/tag-input";
 
 function NewPost(props) {
   const { isOpen, onOpenChange } = props;
@@ -86,50 +87,56 @@ function NewPost(props) {
       <DialogContent>
         {/* Dialog header */}
         <div className="fixed flex h-12 w-full flex-col items-center justify-center px-6 py-5 md:items-start">
-          <DialogTitle className="text-body font-semibold md:text-title3">
-            New post
-          </DialogTitle>
+          {step === 3 && (
+            <DialogTitle className="text-body font-semibold md:text-title3">
+              New post
+            </DialogTitle>
+          )}
         </div>
 
-        <div className="mx-2 mb-4 mt-12 flex h-80 flex-col gap-4 overflow-hidden rounded-2xl border border-border shadow-md">
+        <div className="mx-2 mb-4 mt-12 flex h-80 flex-col gap-4 overflow-clip rounded-2xl border border-border shadow-md">
           {/* Step 1 */}
           {step === 1 && (
             <div className="flex h-full flex-col gap-2 px-4 pt-3">
               <div className="text-body font-semibold">Recommend a place</div>
-              <Command>
-                <div className="relative">
-                  <CommandInput
-                    ref={placeInputRef}
-                    value={query}
-                    onValueChange={handleInputChange}
-                    placeholder="Search for the place"
-                    type="search"
-                  />
-                  <Button
-                    size="icon"
-                    variant="ghost"
-                    className="absolute right-1 top-1/2 -translate-y-1/2"
-                    onClick={handleClear}
-                  >
-                    <IcCloseCircle20 />
-                  </Button>
-                </div>
-
-                <CommandList>
-                  {query && results.length === 0 ? (
-                    <CommandEmpty>No results found</CommandEmpty>
-                  ) : (
-                    results.map((result, index) => (
-                      <CommandItem
-                        key={index}
-                        onSelect={() => handleSelect(result)}
+              <div className="overflow-y h-0 grow">
+                <Command>
+                  <div className="relative z-10">
+                    <CommandInput
+                      ref={placeInputRef}
+                      value={query}
+                      onValueChange={handleInputChange}
+                      placeholder="Search for the place"
+                      type="search"
+                    />
+                    {query && (
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="absolute right-1 top-1/2 -translate-y-1/2"
+                        onClick={handleClear}
                       >
-                        {result}
-                      </CommandItem>
-                    ))
-                  )}
-                </CommandList>
-              </Command>
+                        <IcCloseCircle20 />
+                      </Button>
+                    )}
+                  </div>
+
+                  <CommandList>
+                    {query && results.length === 0 ? (
+                      <CommandEmpty>No results found</CommandEmpty>
+                    ) : (
+                      results.map((result, index) => (
+                        <CommandItem
+                          key={index}
+                          onSelect={() => handleSelect(result)}
+                        >
+                          {result}
+                        </CommandItem>
+                      ))
+                    )}
+                  </CommandList>
+                </Command>
+              </div>
             </div>
           )}
 
@@ -146,13 +153,16 @@ function NewPost(props) {
                 <IcLocation16 />
                 {selectedItem}
               </div>
-              <div className="p-4">
+              <div className="flex flex-col gap-2 px-4 pt-3">
                 <div className="font-semibold">
                   What did you like here the most?
                 </div>
-                <CategorySelector />
+                <TagInput
+                  hiddenLabel
+                  placeholder="e.g. Food, Ambience, Service, Views..."
+                />
+
                 <Command>
-                  <CommandInput placeholder="Search options..." />
                   <CommandList>
                     {[
                       "Coffee",
@@ -175,19 +185,11 @@ function NewPost(props) {
           )}
         </div>
 
-        <DialogClose asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute left-4 top-2 text-icon md:left-auto md:right-2"
-          >
-            <IcClose24 />
+        {step === 3 && (
+          <Button className="absolute right-6 top-2 md:hidden" disabled>
+            Post
           </Button>
-        </DialogClose>
-
-        <Button className="absolute right-6 top-2 md:hidden" disabled>
-          Post
-        </Button>
+        )}
 
         {/* Dialog footer */}
         <div className="hidden justify-end gap-2 bg-material-thick px-4 py-3 shadow-borderTop backdrop-blur-xl md:flex">

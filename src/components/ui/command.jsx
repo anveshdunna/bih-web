@@ -11,10 +11,7 @@ import IcSearch20 from "@/assets/icons/Search20";
 const Command = React.forwardRef(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
-    className={cn(
-      "flex h-full w-full flex-col overflow-hidden text-text",
-      className,
-    )}
+    className={cn("flex h-full w-full flex-col text-text", className)}
     {...props}
   />
 ));
@@ -34,7 +31,7 @@ const CommandDialog = ({ children, ...props }) => {
 
 const CommandInput = React.forwardRef(({ className, ...props }, ref) => (
   <div
-    className="flex items-center rounded-xl border border-border px-3"
+    className="z-20 flex items-center rounded-xl bg-transparent px-3 shadow-borderInput"
     cmdk-input-wrapper=""
   >
     {/* <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" /> Delete this icon */}
@@ -42,7 +39,7 @@ const CommandInput = React.forwardRef(({ className, ...props }, ref) => (
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-10 w-full rounded-xl bg-transparent py-3 text-body outline-none placeholder:text-text-tertiary disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-10 w-full rounded-xl bg-transparent text-body outline-none placeholder:text-text-tertiary disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}
@@ -55,7 +52,7 @@ const CommandList = React.forwardRef(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
     className={cn(
-      "overflow-y-auto overflow-x-hidden md:max-h-[300px]",
+      "h-full overflow-y-auto overflow-x-hidden md:max-h-[300px]",
       className,
     )}
     {...props}

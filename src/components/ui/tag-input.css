@@ -1,0 +1,31 @@
+/* .tag-input-container {
+  @apply font-sans;
+} */
+
+.tag-input-label {
+  @apply mb-2 block text-lg font-semibold;
+}
+
+.tag-input {
+  @apply shadow-borderInput flex flex-wrap gap-2 rounded-xl p-1 font-sans;
+}
+
+.tag-input__tag {
+  @apply m-0 flex h-8 items-center rounded-lg border-none bg-fill px-2 py-1 text-blue-7 text-text hover:border-none hover:bg-fill-hover hover:text-text active:border-none active:bg-fill-active active:text-text;
+}
+
+.tag-input__tag--editable .tag-input__text {
+  @apply hidden;
+}
+
+.tag-input__tag--editable .tag-input__edit {
+  @apply block w-full px-2 py-1;
+}
+
+.tag-input__remove {
+  @apply ml-2 text-red-5 hover:text-red-7;
+}
+
+.tag-input__input {
+  @apply m-0 rounded border px-2 py-1;
+}

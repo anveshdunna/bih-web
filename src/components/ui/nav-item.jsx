@@ -10,7 +10,7 @@ const NavItem = (props) => {
   return (
     <Link
       href={link}
-      className={`relative flex flex-1 items-center justify-center gap-2 rounded-lg px-2 py-1.5 transition hover:bg-gray-3 ${isActive ? "text-gray-12" : "text-gray-11"}`}
+      className={`relative flex flex-1 items-center justify-center gap-2 rounded-lg px-2 py-1.5 transition hover:bg-fill-secondary-hover active:bg-fill-secondary-active ${isActive ? "text-gray-12" : "text-gray-11"}`}
     >
       {iconName && <Icon name={`${iconName}${isActive ? "Solid" : ""}`} />}
       <div className="text-subheadline font-semibold">{name}</div>

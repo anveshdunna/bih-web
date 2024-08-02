@@ -184,6 +184,7 @@ module.exports = {
         borderRight: "1px 0 0 0 var(--nav-shadow)",
         borderTop: "0 -1px 0 0 var(--nav-shadow)",
         borderLeft: "-1px 0 0 0 var(--nav-shadow)",
+        borderInput: "0 0 0 1px var(--border-primary)",
       },
     },
   },
