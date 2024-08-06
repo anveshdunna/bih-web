@@ -34,7 +34,7 @@ export default function Post(props) {
           <ProfileName name={profileName} />
           <div className="flex items-center gap-2">
             <div className="text-text-tertiary">{time}</div>
-            <Button variant="ghost" className="px-1.5 text-icon">
+            <Button variant="ghost" className="text-icon" size="icon">
               <IcMoreHorizontal20 />
             </Button>
           </div>

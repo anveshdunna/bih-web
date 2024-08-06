@@ -49,7 +49,14 @@
 @layer base {
   :root {
     --bg-primary: white;
+    --bg-secondary: var(--slate-2);
+    --bg-tertiary: white;
     --bg-inverse: var(--slate-12);
+    --bg-neutral: var(--slate-3);
+    --bg-info: var(--blue-3);
+    --bg-success: var(--jade-3);
+    --bg-warning: var(--amber-3);
+    --bg-critical: var(--tomato-3);
 
     --material-ultrathin: var(--white-a5);
     --material-thin: var(--white-a7);
@@ -63,15 +70,22 @@
     --surface-secondary-hover: var(--slate-3);
     --surface-secondary-active: var(--slate-4);
 
+    --fill-transparent: transparent;
     --fill-primary: var(--slate-a3);
     --fill-primary-hover: var(--slate-a4);
     --fill-primary-active: var(--slate-a5);
-    --fill-secondary: transparent;
+    --fill-secondary: var(--slate-a2);
     --fill-secondary-hover: var(--slate-a3);
     --fill-secondary-active: var(--slate-a4);
-    --fill-brand: var(--slate-12);
-    --fill-brand-hover: black;
-    --fill-brand-active: black;
+    --fill-tertiary: var(--slate-a1);
+    --fill-tertiary-hover: var(--slate-a2);
+    --fill-tertiary-active: var(--slate-a3);
+    --fill-brand: var(--iris-9);
+    --fill-brand-hover: var(--iris-10);
+    --fill-brand-active: var(--iris-11);
+    --fill-neutral: var(--slate-12);
+    --fill-neutral-hover: black;
+    --fill-neutral-active: black;
     --fill-info: var(--blue-9);
     --fill-info-hover: var(--blue-10);
     --fill-info-active: var(--blue-11);
@@ -84,6 +98,18 @@
     --fill-critical: var(--tomato-9);
     --fill-critical-hover: var(--tomato-10);
     --fill-critical-active: var(--tomato-11);
+
+    --fg-primary: var(--slate-12);
+    --fg-secondary: var(--slate-11);
+    --fg-tertiary: var(--slate-9);
+    --fg-quaternary: var(--slate-8);
+    --fg-inverse: white;
+    --fg-contrast: white;
+    --fg-brand: var(--iris-11);
+    --fg-info: var(--blue-11);
+    --fg-success: var(--jade-11);
+    --fg-warning: var(--amber-11);
+    --fg-critical: var(--tomato-11);
 
     --text-primary: var(--slate-12);
     --text-secondary: var(--slate-11);
@@ -106,12 +132,18 @@
     --border-primary: var(--slate-a6);
     --border-secondary: var(--slate-a5);
     --border-tertiary: var(--slate-a7);
+    --border-brand: var(--iris-5);
+    --border-info: var(--blue-5);
+    --border-success: var(--jade-5);
+    --border-warning: var(--amber-5);
+    --border-critical: var(--tomato-5);
 
     --nav-shadow: rgba(0, 0, 0, 0.1);
     --activity-liked: var(--tomato-9);
     --activity-commented: var(--blue-9);
     --activity-mentioned: var(--jade-9);
     --activity-followed: var(--iris-9);
+    --ring: var(--blue-7);
 
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
@@ -130,14 +162,20 @@
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
-    --ring: 24.6 95% 53.1%;
   }
 
   .dark {
     --slate-1-rgb: 17, 17, 19;
 
     --bg-primary: var(--slate-1);
-    --bg-inverse: white;
+    --bg-secondary: var(--slate-2);
+    --bg-tertiary: var(--slate-3);
+    --bg-inverse: var(--slate-12);
+    --bg-neutral: var(--slate-3);
+    --bg-info: var(--blue-3);
+    --bg-success: var(--jade-3);
+    --bg-warning: var(--amber-3);
+    --bg-critical: var(--tomato-3);
 
     --material-ultrathin: rgba(var(--slate-1-rgb), 0.3);
     --material-thin: rgba(var(--slate-1-rgb), 0.5);
@@ -157,9 +195,12 @@
     --fill-secondary: transparent;
     --fill-secondary-hover: var(--slate-a3);
     --fill-secondary-active: var(--slate-a4);
-    --fill-brand: var(--slate-12);
-    --fill-brand-hover: white;
-    --fill-brand-active: white;
+    --fill-brand: var(--iris-9);
+    --fill-brand-hover: var(--iris-10);
+    --fill-brand-active: var(--iris-11);
+    --fill-neutral: var(--slate-12);
+    --fill-neutral-hover: white;
+    --fill-neutral-active: white;
     --fill-info: var(--blue-9);
     --fill-info-hover: var(--blue-10);
     --fill-info-active: var(--blue-11);
@@ -172,6 +213,18 @@
     --fill-critical: var(--tomato-9);
     --fill-critical-hover: var(--tomato-10);
     --fill-critical-active: var(--tomato-11);
+
+    --fg-primary: var(--slate-12);
+    --fg-secondary: var(--slate-11);
+    --fg-tertiary: var(--slate-9);
+    --fg-quaternary: var(--slate-8);
+    --fg-inverse: var(--slate-1);
+    --fg-contrast: white;
+    --fg-brand: var(--iris-11);
+    --fg-info: var(--blue-11);
+    --fg-success: var(--jade-11);
+    --fg-warning: var(--amber-11);
+    --fg-critical: var(--tomato-11);
 
     --text-primary: var(--slate-12);
     --text-secondary: var(--slate-11);
@@ -200,6 +253,7 @@
     --activity-commented: var(--blue-9);
     --activity-mentioned: var(--jade-9);
     --activity-followed: var(--iris-9);
+    --ring: var(--blue-7);
 
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;
@@ -218,7 +272,6 @@
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
-    --ring: 20.5 90.2% 48.2%;
   }
 }
 
@@ -231,5 +284,8 @@
   }
   .inside-border {
     @apply outline outline-1 -outline-offset-1 outline-border-secondary;
+  }
+  .input-border {
+    @apply outline outline-1 outline-offset-0 outline-border-tertiary;
   }
 }

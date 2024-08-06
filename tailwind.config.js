@@ -37,7 +37,14 @@ module.exports = {
       colors: {
         bg: {
           DEFAULT: "var(--bg-primary)",
+          secondary: "var(--bg-secondary)",
+          tertiary: "var(--bg-secondary)",
           inverse: "var(--bg-inverse)",
+          neutral: "var(--bg-neutral)",
+          info: "var(--bg-info)",
+          success: "var(--bg-success)",
+          warning: "var(--bg-warning)",
+          critical: "var(--bg-critical)",
         },
         material: {
           ultrathin: "var(--material-ultrathin)",
@@ -64,10 +71,20 @@ module.exports = {
             hover: "var(--fill-secondary-hover)",
             active: "var(--fill-secondary-active)",
           },
+          tertiary: {
+            DEFAULT: "var(--fill-tertiary)",
+            hover: "var(--fill-tertiary-hover)",
+            active: "var(--fill-tertiary-active)",
+          },
           brand: {
             DEFAULT: "var(--fill-brand)",
             hover: "var(--fill-brand-hover)",
             active: "var(--fill-brand-active)",
+          },
+          neutral: {
+            DEFAULT: "var(--fill-neutral)",
+            hover: "var(--fill-neutral-hover)",
+            active: "var(--fill-neutral-active)",
           },
           info: {
             DEFAULT: "var(--fill-info)",
@@ -89,6 +106,19 @@ module.exports = {
             hover: "var(--fill-critical-hover)",
             active: "var(--fill-critical-active)",
           },
+        },
+        fg: {
+          DEFAULT: "var(--fg-primary)",
+          secondary: "var(--fg-secondary)",
+          tertiary: "var(--fg-tertiary)",
+          quaternary: "var(--fg-quaternary)",
+          inverse: "var(--fg-inverse)",
+          contrast: "var(--fg-contrast)",
+          brand: "var(--fg-brand)",
+          info: "var(--fg-info)",
+          success: "var(--fg-success)",
+          warning: "var(--fg-warning)",
+          critical: "var(--fg-critical)",
         },
         text: {
           DEFAULT: "var(--text-primary)",
@@ -121,7 +151,7 @@ module.exports = {
           mentioned: "var(--activity-mentioned)",
           followed: "var(--activity-followed)",
         },
-
+        ring: "var(--ring)",
         // foreground: "hsl(var(--foreground))",
         // primary: {
         //   DEFAULT: "hsl(var(--primary))",
@@ -173,6 +203,18 @@ module.exports = {
         footnote: ["0.8125rem", "1.125rem"],
         caption1: ["0.75rem", "1rem"],
         caption2: ["0.6875rem", "0.8125rem"],
+        titleLg: ["2rem", "2.25rem"],
+        titleMd: ["1.625rem", "1.875rem"],
+        titleSm: ["1.375rem", "1.625rem"],
+        titleXs: ["1.125rem", "1.375rem"],
+        bodyXl: ["1.125rem", "1.5rem"],
+        bodyXlTall: ["1.125rem", "1.75rem"],
+        bodyLg: ["1rem", "1.25rem"],
+        bodyLgTall: ["1rem", "1.5rem"],
+        bodyMd: ["0.875rem", "1.125rem"],
+        bodyMdTall: ["0.875rem", "1.25rem"],
+        bodySm: ["0.75rem", "1rem"],
+        bodyXs: ["0.625rem", "0.75rem"],
       },
       boxShadow: {
         button: "0 0 0 1px rgba(0, 0, 0, 0.3) inset",

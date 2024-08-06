@@ -5,6 +5,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import NavItem from "@/components/ui/nav-item";
 import { usePathname } from "next/navigation";
+import { Input } from "@/components/ui/input";
 
 export default function ExploreLayout(props) {
   const { children } = props;
@@ -29,9 +30,13 @@ function ExploreHeader(props) {
   const pathname = usePathname();
 
   return (
-    <div className="sticky top-0 z-10 bg-material px-6 shadow-borderBottom backdrop-blur-xl lg:px-3">
-      <div className="h-12"></div>
-      <div className="text-title2 font-semibold">Activity</div>
+    <div className="sticky top-0 z-10 bg-material px-6 pt-4 shadow-borderBottom backdrop-blur-xl lg:px-3">
+      <Input
+        type="search"
+        placeholder="Search..."
+        className=""
+        // className="bg-background w-full rounded-lg pl-8 md:w-[200px] lg:w-[336px]"
+      />
       <div className="flex w-full py-2 shadow-borderBottom">
         <NavItem
           name="Trending"

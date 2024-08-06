@@ -11,19 +11,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${figtree} ${fraunces} font-sans`}>
-      <body className="min-h-screen bg-bg text-body text-text">
+      <body className="bg-bg text-body text-text">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="fixed-wrapper">
+          {/* <div className="fixed-wrapper">
             <GlobalNav />
             <div className="scrollable-content">{children}</div>
+          </div> */}
+
+          <div className="">
+            <GlobalNav />
+            <div className="">{children}</div>
           </div>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
+// removed min-h-screen from body class.
