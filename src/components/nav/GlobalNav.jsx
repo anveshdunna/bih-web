@@ -51,6 +51,7 @@ import IcPlusSquare24 from "@/assets/icons/PlusSquare24";
 import IcPlus24 from "@/assets/icons/Plus24";
 import { useState } from "react";
 import NewPost from "../dialog/NewPost";
+import { useDialog } from "@/contexts/DialogContext";
 
 export default function GlobalNav(props) {
   const [isDesktop, isMobile] = checkWindowWidth();
@@ -59,11 +60,26 @@ export default function GlobalNav(props) {
   const [isNewPostOpen, setIsNewPostOpen] = useState(false);
   const [isNewListOpen, setIsNewListOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { openDialog, closeDialog } = useDialog();
   // const newPostDialog = () => setIsNewPostOpen(!isNewPostOpen);
-  const newPostDialog = () => {
-    setIsDrawerOpen(false); // Close the drawer
-    setIsNewPostOpen(true); // Open the dialog
+  const openPostDialog = () => {
+    setIsDrawerOpen(false); // Closes the drawer or buttons
+    setIsNewPostOpen(true); // Opens the dialog
+    openDialog(); // Enables dialog styling for body
   };
+
+  const closePostDialog = () => {
+    setIsNewPostOpen(false); // Closes the dialog
+    closeDialog(); // Disables dialog styling for body
+  };
+
+  function toggleNewPostDialog() {
+    if (isNewPostOpen) {
+      closePostDialog();
+    } else {
+      openPostDialog();
+    }
+  }
 
   const handleDrawer = (open) => {
     setIsDrawerOpen(open);
@@ -73,7 +89,7 @@ export default function GlobalNav(props) {
 
   return (
     <>
-      <nav className="fixed bottom-0 z-10 flex h-16 w-full gap-1 bg-material px-2 py-2 shadow-borderTop backdrop-blur-xl md:top-0 md:h-full md:w-16 md:flex-col md:justify-center md:shadow-none">
+      <nav className="fixed bottom-0 z-30 flex h-16 w-full gap-1 bg-material px-2 py-2 shadow-borderTop backdrop-blur-xl md:top-0 md:h-full md:w-16 md:flex-col md:justify-center md:shadow-none">
         {/* Home link */}
         <GlobalNavItem name="Home" link="/" isActive={pathname === "/"}>
           {pathname === "/" ? <IcHome24Bold /> : <IcHome24 />}
@@ -110,7 +126,11 @@ export default function GlobalNav(props) {
                 <DrawerTitle>Create new</DrawerTitle>
               </DrawerHeader>
               <div className="flex justify-center gap-6 pb-6">
-                <CreateNewButton name="Post" isMobile onClick={newPostDialog} />
+                <CreateNewButton
+                  name="Post"
+                  isMobile
+                  onClick={openPostDialog}
+                />
                 <CreateNewButton name="List" isMobile />
               </div>
             </DrawerContent>
@@ -155,7 +175,7 @@ export default function GlobalNav(props) {
                 <CreateNewButton
                   name="Create new post"
                   isMobile="false"
-                  onClick={newPostDialog}
+                  onClick={openPostDialog}
                 />
                 <CreateNewButton name="Create new list" isMobile="false" />
               </div>
@@ -163,7 +183,7 @@ export default function GlobalNav(props) {
           </DropdownMenu>
         )}
       </nav>
-      <NewPost isOpen={isNewPostOpen} onOpenChange={setIsNewPostOpen} />
+      <NewPost isOpen={isNewPostOpen} onOpenChange={toggleNewPostDialog} />
     </>
   );
 }

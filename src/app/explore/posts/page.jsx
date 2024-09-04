@@ -1,7 +1,7 @@
 import Place from "@/components/place/Place";
 import placeData from "@/data/placeData";
 
-export default function Places(props) {
+export default function Posts(props) {
   return (
     <div className="mb-16 mt-2">
       {placeData.map((item, index) => (

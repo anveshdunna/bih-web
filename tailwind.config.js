@@ -144,6 +144,14 @@ module.exports = {
           DEFAULT: "var(--border-primary)",
           secondary: "var(--border-secondary)",
           tertiary: "var(--border-tertiary)",
+          brand: {
+            DEFAULT: "var(--border-brand)",
+            secondary: "var(--border-brand-secondary)",
+          },
+          info: "var(--border-info)",
+          success: "var(--border-success)",
+          warning: "var(--border-warning)",
+          critical: "var(--border-critical)",
         },
         activity: {
           liked: "var(--activity-liked)",
@@ -152,6 +160,11 @@ module.exports = {
           followed: "var(--activity-followed)",
         },
         ring: "var(--ring)",
+        fillSelected: {
+          DEFAULT: "var(--fill-selected)",
+          hover: "var(--fill-selected-hover)",
+          active: "var(--fill-selected-active)",
+        },
         // foreground: "hsl(var(--foreground))",
         // primary: {
         //   DEFAULT: "hsl(var(--primary))",

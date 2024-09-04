@@ -47,8 +47,8 @@ for (let i = 0; i <= 80; i++) {
     type: getRandom(types),
     thumbnailType: getRandom(thumbnailTypes),
     thumbnailPlaceholder: getRandom([0, 1]),
-    avatarImg: `https://source.unsplash.com/random/80x80/?human%20face,${i}`,
-    placeImg: `https://loremflickr.com/80/80/nature?lock=${i}`,
+    avatarImg: `https://loremflickr.com/80/80/face?lock=${i}`,
+    placeImg: `https://picsum.photos/800/600?random=${i}`,
   });
 }
 
@@ -58,6 +58,3 @@ function getRandom(array) {
 }
 
 export default activityData;
-
-// avatarImg: `https://source.unsplash.com/random/80x80/?human%20face,${i}`,
-// avatarImg: `https://loremflickr.com/80/80/face?lock=${i}`,

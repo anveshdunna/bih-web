@@ -158,7 +158,7 @@ for (let i = 0; i <= 20; i++) {
     imgSrc: `https://picsum.photos/800/600?random=${i}`,
     placeThumbnail: getRandom([0, 1]),
     isMedia: getRandom([0, 1]),
-    mediaImgSrc: `https://source.unsplash.com/random/800x400/?tourism,${i}`,
+    mediaImgSrc: `https://picsum.photos/800/600?random=${i + 5}`,
     isCaption: getRandom([0, 1]),
     caption: getRandom(captions),
   });
@@ -184,5 +184,3 @@ function getRandomItems(array) {
 }
 
 export default postData;
-
-// avatarImg: `https://source.unsplash.com/random/80x80/?human%20face,${i}`,

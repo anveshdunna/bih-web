@@ -30,6 +30,7 @@
 
 .fixed-wrapper {
   position: fixed;
+  background-color: aquamarine;
   top: 0;
   left: 0;
   width: 100%;
@@ -38,7 +39,8 @@
 }
 
 .scrollable-content {
-  position: relative; /* Absolute positioning to fit within the fixed wrapper */
+  position: relative;
+  background-color: red; /* Absolute positioning to fit within the fixed wrapper */
   top: 0;
   left: 0;
   width: 100%;
@@ -132,7 +134,8 @@
     --border-primary: var(--slate-a6);
     --border-secondary: var(--slate-a5);
     --border-tertiary: var(--slate-a7);
-    --border-brand: var(--iris-5);
+    --border-brand: var(--iris-6);
+    --border-brand-secondary: var(--iris-5);
     --border-info: var(--blue-5);
     --border-success: var(--jade-5);
     --border-warning: var(--amber-5);
@@ -143,7 +146,10 @@
     --activity-commented: var(--blue-9);
     --activity-mentioned: var(--jade-9);
     --activity-followed: var(--iris-9);
-    --ring: var(--blue-7);
+    --ring: var(--blue-9);
+    --fill-selected: var(--iris-3);
+    --fill-selected-hover: var(--iris-4);
+    --fill-selected-active: var(--iris-5);
 
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
@@ -247,13 +253,22 @@
     --border-primary: var(--slate-a6);
     --border-secondary: var(--slate-a5);
     --border-tertiary: var(--slate-a7);
+    --border-brand: var(--iris-6);
+    --border-brand-secondary: var(--iris-5);
+    --border-info: var(--blue-5);
+    --border-success: var(--jade-5);
+    --border-warning: var(--amber-5);
+    --border-critical: var(--tomato-5);
 
     --nav-shadow: rgba(255, 255, 255, 0.1);
     --activity-liked: var(--tomato-9);
     --activity-commented: var(--blue-9);
     --activity-mentioned: var(--jade-9);
     --activity-followed: var(--iris-9);
-    --ring: var(--blue-7);
+    --ring: var(--blue-9);
+    --fill-selected: var(--iris-3);
+    --fill-selected-hover: var(--iris-4);
+    --fill-selected-active: var(--iris-5);
 
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;

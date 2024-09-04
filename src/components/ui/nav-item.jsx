@@ -10,14 +10,14 @@ const NavItem = (props) => {
   return (
     <Link
       href={link}
-      className={`relative flex flex-1 items-center justify-center gap-2 rounded-lg px-2 py-1.5 transition hover:bg-fill-secondary-hover active:bg-fill-secondary-active ${isActive ? "text-gray-12" : "text-gray-11"}`}
+      className={`relative flex h-8 flex-1 items-center justify-center gap-2 rounded-lg px-2 transition hover:bg-fill-secondary-hover active:bg-fill-secondary-active ${isActive ? "text-fg" : "text-fg-secondary"}`}
     >
       {iconName && <Icon name={`${iconName}${isActive ? "Solid" : ""}`} />}
-      <div className="text-subheadline font-semibold">{name}</div>
+      <div className="text-bodyMd font-semibold">{name}</div>
       {isActive && (
         <motion.div
           layoutId={`id-${layoutId}`}
-          className="absolute bottom-0 -mb-2 h-0.5 w-full bg-gray-12"
+          className="absolute bottom-0 -mb-2 h-0.5 w-full bg-fill-neutral"
         ></motion.div>
       )}
     </Link>

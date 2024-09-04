@@ -30,7 +30,7 @@ function ExploreHeader(props) {
   const pathname = usePathname();
 
   return (
-    <div className="sticky top-0 z-10 bg-material px-6 pt-4 shadow-borderBottom backdrop-blur-xl lg:px-3">
+    <div className="sticky top-0 z-20 bg-material-thick px-6 pt-4 shadow-borderBottom backdrop-blur-xl lg:px-3">
       <Input
         type="search"
         placeholder="Search..."
@@ -42,6 +42,12 @@ function ExploreHeader(props) {
           name="Trending"
           link={`/explore`}
           isActive={pathname === `/explore`}
+          layoutId="exploretabs"
+        />
+        <NavItem
+          name="Posts"
+          link={`/explore/posts`}
+          isActive={pathname === `/explore/posts`}
           layoutId="exploretabs"
         />
         <NavItem

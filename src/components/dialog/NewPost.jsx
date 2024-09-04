@@ -29,10 +29,9 @@ import {
 import IcCloseCircle20 from "@/assets/icons/CloseCircle20";
 import CategorySelector from "../CategorySelector";
 import TagInput from "../ui/tag-input";
+import SelectCategory from "../SelectCategory";
 
-function NewPost(props) {
-  const { isOpen, onOpenChange } = props;
-
+function NewPost({ isOpen, onOpenChange }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -86,7 +85,7 @@ function NewPost(props) {
       {/* <Dialog.Content className="fixed left-0 right-0 m-auto w-full items-stretch overflow-hidden bg-surface md:bottom-auto md:top-1/2 md:w-auto md:max-w-md md:-translate-y-1/2 md:transform md:rounded-3xl"></Dialog.Content> */}
       <DialogContent>
         {/* Dialog header */}
-        <div className="fixed flex h-12 w-full flex-col items-center justify-center px-6 py-5 md:items-start">
+        <div className="fixed flex h-12 w-full flex-col items-center justify-center bg-red-5 px-6 py-5 md:items-start">
           {step === 3 && (
             <DialogTitle className="text-body font-semibold md:text-title3">
               New post
@@ -94,11 +93,11 @@ function NewPost(props) {
           )}
         </div>
 
-        <div className="mx-2 mb-4 mt-12 flex h-80 flex-col gap-4 overflow-clip rounded-2xl border border-border shadow-md">
+        <div className="mx-2 mb-4 mt-12 flex h-80 flex-col overflow-clip rounded-2xl border border-border shadow-md">
           {/* Step 1 */}
           {step === 1 && (
             <div className="flex h-full flex-col gap-2 px-4 pt-3">
-              <div className="text-body font-semibold">Recommend a place</div>
+              <div className="text-bodyLg font-semibold">Recommend a place</div>
               <div className="overflow-y h-0 grow">
                 <Command>
                   <div className="relative z-10">
@@ -144,7 +143,7 @@ function NewPost(props) {
             <div className="">
               <div
                 role="button"
-                className="flex h-10 items-center gap-1 border-b border-border px-4 text-footnote hover:bg-fill-secondary-hover active:bg-fill-secondary-active"
+                className="flex h-10 items-center gap-1 border-b border-border px-4 text-bodyMd transition hover:bg-fill-secondary-hover active:bg-fill-secondary-active"
                 onClick={() => {
                   setStep(1);
                   setQuery(selectedItem);
@@ -154,32 +153,25 @@ function NewPost(props) {
                 {selectedItem}
               </div>
               <div className="flex flex-col gap-2 px-4 pt-3">
-                <div className="font-semibold">
+                <div className="text-bodyLg font-semibold">
                   What did you like here the most?
                 </div>
-                <TagInput
+                {/* <TagInput
                   hiddenLabel
                   placeholder="e.g. Food, Ambience, Service, Views..."
-                />
-
-                <Command>
-                  <CommandList>
-                    {[
-                      "Coffee",
-                      "Ginger tea",
-                      "Bread omelette",
-                      "Green tea",
-                      "Masala tea",
-                      "Tea",
-                      "Sandwich",
-                      "Ice tea",
-                      "Double omelette",
-                      "Club sandwich",
-                    ].map((option, index) => (
-                      <CommandItem key={index}>{option}</CommandItem>
-                    ))}
-                  </CommandList>
-                </Command>
+                /> */}
+                <SelectCategory />
+                {/* <div className="flex flex-wrap gap-2">
+                  <div className="flex h-7 items-center rounded-lg bg-fill px-3 text-bodyMd">
+                    Coffee
+                  </div>
+                  <div className="flex h-7 items-center rounded-lg bg-fill px-3 text-bodyMd">
+                    Coffee
+                  </div>
+                  <div className="flex h-7 items-center rounded-lg border-2 border-fg bg-fill px-3 text-bodyMd">
+                    Coffee
+                  </div>
+                </div> */}
               </div>
             </div>
           )}

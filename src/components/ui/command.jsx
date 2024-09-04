@@ -11,7 +11,7 @@ import IcSearch20 from "@/assets/icons/Search20";
 const Command = React.forwardRef(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
-    className={cn("flex h-full w-full flex-col text-text", className)}
+    className={cn("flex h-full w-full flex-col text-fg", className)}
     {...props}
   />
 ));
@@ -35,11 +35,11 @@ const CommandInput = React.forwardRef(({ className, ...props }, ref) => (
     cmdk-input-wrapper=""
   >
     {/* <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" /> Delete this icon */}
-    <IcSearch24 className="mr-2 shrink-0 text-icon" />
+    <IcSearch24 className="mr-2 shrink-0 text-fg-secondary" />
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-10 w-full rounded-xl bg-transparent text-body outline-none placeholder:text-text-tertiary disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-10 w-full rounded-xl bg-transparent text-bodyLg outline-none placeholder:text-text-tertiary disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}
