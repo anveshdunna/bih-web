@@ -160,6 +160,11 @@ module.exports = {
           followed: "var(--activity-followed)",
         },
         ring: "var(--ring)",
+        scrim: {
+          DEFAULT: "var(--scrim-primary)",
+          secondary: "var(--scrim-secondary)",
+        },
+
         fillSelected: {
           DEFAULT: "var(--fill-selected)",
           hover: "var(--fill-selected-hover)",

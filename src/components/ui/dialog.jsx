@@ -7,6 +7,11 @@ import { cn } from "@/lib/utils";
 import IcClose24 from "@/assets/icons/Close24";
 import { Button } from "./button";
 
+// Check if device iOS, to remove autofocus if first entry is text input
+const isIOS = () => {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+};
+
 // Dialog components
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
@@ -20,7 +25,7 @@ const DialogOverlay = React.forwardRef((props, ref) => {
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        "fixed inset-0 z-50 h-full bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        "bg-scrim fixed inset-0 z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         className,
       )}
       {...otherProps}
@@ -42,9 +47,14 @@ const DialogContent = React.forwardRef((props, ref) => {
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          "fixed left-0 right-0 top-0 z-50 grid bg-bg shadow-lg duration-200 md:left-1/2 md:top-1/2 md:max-w-lg md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-3xl",
+          "fixed inset-0 z-50 grid bg-bg shadow-lg duration-200 md:left-1/2 md:top-1/2 md:max-w-lg md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-3xl",
           className,
         )}
+        onOpenAutoFocus={(e) => {
+          if (isIOS()) {
+            e.preventDefault(); // Prevents input autofocus only on iOS
+          }
+        }}
         {...otherProps}
       >
         {children}
