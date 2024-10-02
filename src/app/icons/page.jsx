@@ -14,7 +14,7 @@ const arrayWith16 = iconArray.filter((value) => value[0].includes("16"));
 const arrayWith20 = iconArray.filter((value) => value[0].includes("20"));
 const arrayWith24 = iconArray.filter((value) => value[0].includes("24"));
 
-function page() {
+function Page() {
   const [search, setSearch] = useState("");
 
   // Copy to clipboard code
