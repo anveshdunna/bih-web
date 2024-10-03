@@ -46,7 +46,7 @@ import IcHome24Bold from "@/assets/icons/Home24Bold";
 import IcSearch24 from "@/assets/icons/Search24";
 import IcSearch24Bold from "@/assets/icons/Search24Bold";
 import IcBell24 from "@/assets/icons/Bell24";
-import IcBell24Bold from "@/assets/icons/Bell24Bold";
+import IcBellBold24 from "@/assets/icons/BellBold24";
 import IcPlusSquare24 from "@/assets/icons/PlusSquare24";
 import IcPlus24 from "@/assets/icons/Plus24";
 import { useState } from "react";
@@ -123,7 +123,7 @@ export default function GlobalNav(props) {
           link="/activity"
           isActive={pathname.startsWith("/activity")}
         >
-          {pathname.startsWith("/activity") ? <IcBell24Bold /> : <IcBell24 />}
+          {pathname.startsWith("/activity") ? <IcBellBold24 /> : <IcBell24 />}
         </GlobalNavItem>
 
         {/* Profile link */}

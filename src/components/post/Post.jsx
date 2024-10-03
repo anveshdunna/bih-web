@@ -3,11 +3,13 @@ import PostReco from "./PostReco";
 import PostMedia from "./PostMedia";
 import { Button } from "../ui/button";
 import IcHeart20 from "@/assets/icons/Heart20";
+import IcBookmark20 from "@/assets/icons/Bookmark20";
 import IcMoreHorizontal20 from "@/assets/icons/MoreHorizontal20";
 import IcComment20 from "@/assets/icons/Comment20";
 import IcList20 from "@/assets/icons/List20";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import ProfileName from "../ProfileName";
+import IcShare20 from "@/assets/icons/Share20";
 
 export default function Post(props) {
   const {
@@ -24,7 +26,7 @@ export default function Post(props) {
     caption,
   } = props;
   return (
-    <div className="flex w-full max-w-[640px] gap-2 border-b border-border-secondary px-6 py-3 text-subheadline lg:px-0">
+    <div className="flex w-full max-w-[640px] gap-2 border-b border-border-secondary px-6 py-3 text-bodyMd lg:px-0">
       <Avatar size="sm">
         <AvatarImage src={avatarImgSrc} />
         <AvatarFallback>A</AvatarFallback>
@@ -46,13 +48,15 @@ export default function Post(props) {
           placeThumbnail={placeThumbnail}
         />
         {isMedia === 1 && <PostMedia mediaImgSrc={mediaImgSrc} />}
-        {isCaption === 1 && <div className="mt-2">{caption}</div>}
+        {isCaption === 1 && (
+          <div className="mt-2 text-bodyMdTall">{caption}</div>
+        )}
 
         <div className="-mx-1.5 mt-1 flex gap-6 text-gray-11">
           <div className="flex-1">
             <Button
               variant="ghost"
-              className="gap-1 px-1.5 text-footnote font-normal"
+              className="gap-1 px-1.5 text-bodySm font-normal text-fg-secondary"
             >
               <IcHeart20 />
               14
@@ -61,7 +65,7 @@ export default function Post(props) {
           <div className="flex-1">
             <Button
               variant="ghost"
-              className="gap-1 px-1.5 text-footnote font-normal"
+              className="gap-1 px-1.5 text-bodySm font-normal text-fg-secondary"
             >
               <IcComment20 />
               23
@@ -70,15 +74,15 @@ export default function Post(props) {
           <div className="flex-1">
             <Button
               variant="ghost"
-              className="gap-1 px-1.5 text-footnote font-normal"
+              className="gap-1 px-1.5 text-bodySm font-normal text-fg-secondary"
             >
-              <IcList20 />
+              <IcBookmark20 />
               14
             </Button>
           </div>
           <div className="">
-            <Button variant="ghost" className="gap-1 px-1.5">
-              <IcHeart20 />
+            <Button variant="ghost" className="gap-1 px-1.5 text-fg-secondary">
+              <IcShare20 />
             </Button>
           </div>
         </div>
