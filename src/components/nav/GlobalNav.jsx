@@ -42,15 +42,19 @@ import CreateNewButton from "./CreateNewButton";
 import IcHeart20 from "@/assets/icons/Heart20";
 import IcPost24 from "@/assets/icons/Post24";
 import IcHome24 from "@/assets/icons/Home24";
-import IcHome24Bold from "@/assets/icons/Home24Bold";
+import IcHomeBold24 from "@/assets/icons/HomeBold24";
 import IcSearch24 from "@/assets/icons/Search24";
-import IcSearch24Bold from "@/assets/icons/Search24Bold";
+import IcSearchBold24 from "@/assets/icons/SearchBold24";
 import IcBell24 from "@/assets/icons/Bell24";
 import IcBellBold24 from "@/assets/icons/BellBold24";
 import IcPlusSquare24 from "@/assets/icons/PlusSquare24";
 import IcPlus24 from "@/assets/icons/Plus24";
 import { useState } from "react";
 import NewPost from "../dialog/NewPost";
+import IcPersonCircle24 from "@/assets/icons/PersonCircle24";
+import IcPersonCircleBold24 from "@/assets/icons/PersonCircleBold24";
+import IcPerson24 from "@/assets/icons/Person24";
+import IcPersonBold24 from "@/assets/icons/PersonBold24";
 
 export default function GlobalNav(props) {
   const [isDesktop, isMobile] = checkWindowWidth();
@@ -73,10 +77,10 @@ export default function GlobalNav(props) {
 
   return (
     <>
-      <nav className="fixed bottom-0 z-10 flex h-16 w-full gap-1 bg-material px-2 py-2 shadow-borderTop backdrop-blur-xl md:top-0 md:h-full md:w-16 md:flex-col md:justify-center md:shadow-none">
+      <nav className="fixed bottom-0 z-10 flex h-16 w-full gap-1 bg-bg px-2 py-2 shadow-borderTop md:top-0 md:h-full md:w-16 md:flex-col md:justify-center md:shadow-none">
         {/* Home link */}
         <GlobalNavItem name="Home" link="/" isActive={pathname === "/"}>
-          {pathname === "/" ? <IcHome24Bold /> : <IcHome24 />}
+          {pathname === "/" ? <IcHomeBold24 /> : <IcHome24 />}
         </GlobalNavItem>
 
         {/* Explore link */}
@@ -86,7 +90,7 @@ export default function GlobalNav(props) {
           isActive={pathname.startsWith("/explore")}
         >
           {pathname.startsWith("/explore") ? (
-            <IcSearch24Bold />
+            <IcSearchBold24 />
           ) : (
             <IcSearch24 />
           )}
@@ -133,9 +137,9 @@ export default function GlobalNav(props) {
           isActive={pathname.startsWith(`/${demoProfile}`)}
         >
           {pathname.startsWith(`/${demoProfile}`) ? (
-            <IcHome24Bold />
+            <IcPersonBold24 />
           ) : (
-            <IcHome24 />
+            <IcPerson24 />
           )}
         </GlobalNavItem>
 

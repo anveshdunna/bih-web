@@ -37,7 +37,7 @@ function ExploreHeader(props) {
         className=""
         // className="bg-background w-full rounded-lg pl-8 md:w-[200px] lg:w-[336px]"
       />
-      <div className="flex w-full py-2 shadow-borderBottom">
+      <div className="flex w-full py-2">
         <NavItem
           name="Trending"
           link={`/explore`}

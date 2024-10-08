@@ -174,6 +174,9 @@
     --fill-secondary: transparent;
     --fill-secondary-hover: var(--slate-a3);
     --fill-secondary-active: var(--slate-a4);
+    --fill-tertiary: var(--slate-a1);
+    --fill-tertiary-hover: var(--slate-a2);
+    --fill-tertiary-active: var(--slate-a3);
     --fill-brand: var(--iris-9);
     --fill-brand-hover: var(--iris-10);
     --fill-brand-active: var(--iris-11);

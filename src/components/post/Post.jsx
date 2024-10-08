@@ -26,7 +26,7 @@ export default function Post(props) {
     caption,
   } = props;
   return (
-    <div className="flex w-full max-w-[640px] gap-2 border-b border-border-secondary px-6 py-3 text-bodyMd lg:px-0">
+    <div className="flex w-full max-w-[640px] gap-2 px-6 py-3 text-bodyMd lg:px-0">
       <Avatar size="sm">
         <AvatarImage src={avatarImgSrc} />
         <AvatarFallback>A</AvatarFallback>

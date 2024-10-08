@@ -9,7 +9,7 @@ function Person(props) {
   const { name, avatarImgSrc, isFollowing } = props;
   const username = toStringLowerCase(name);
   return (
-    <div className="relative rounded-xl px-6 py-3 transition hover:cursor-pointer hover:bg-fill-secondary-hover active:bg-fill-secondary-active lg:px-3">
+    <div className="relative rounded-xl px-6 py-3 transition hover:cursor-pointer hover:bg-fill-tertiary-hover active:bg-fill-tertiary-active lg:px-3">
       <Link
         className="absolute inset-0 z-0 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-[3px] focus-visible:ring-offset-bg"
         tabIndex="-1"

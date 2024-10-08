@@ -1,4 +1,4 @@
-const IcHome24Bold = (props) => {
+const IcHomeBold24 = (props) => {
   const { color = "currentColor", ...rest } = props;
   return (
     <svg width="24" height="24" {...rest} viewBox="0 0 24 24">
@@ -10,4 +10,4 @@ const IcHome24Bold = (props) => {
   );
 };
 
-export default IcHome24Bold;
+export default IcHomeBold24;

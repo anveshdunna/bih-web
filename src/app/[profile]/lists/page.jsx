@@ -1,3 +1,11 @@
+import List from "@/components/list/List";
+
 export default function Lists() {
-  return <div>Lists</div>;
+  return (
+    <div>
+      <List />
+      <List />
+      <List />
+    </div>
+  );
 }

@@ -1,4 +1,4 @@
-const IcSearch24Bold = (props) => {
+const IcSearchBold24 = (props) => {
   const { color = "currentColor", ...rest } = props;
   return (
     <svg width="24" height="24" {...rest} viewBox="0 0 24 24">
@@ -10,4 +10,4 @@ const IcSearch24Bold = (props) => {
   );
 };
 
-export default IcSearch24Bold;
+export default IcSearchBold24;
